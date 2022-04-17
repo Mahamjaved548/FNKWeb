@@ -1,0 +1,481 @@
+<?php
+
+$conn = mysqli_connect('localhost','root','','contact_db') or die('connection failed');
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $number = $_POST['number'];
+   $date = $_POST['date'];
+
+   $insert = mysqli_query($conn, "INSERT INTO `contact_form`(name, email, number, date) VALUES('$name','$email','$number','$date')") or die('query failed');
+
+   if($insert){
+      $message[] = 'appointment made successfully!';
+   }else{
+      $message[] = 'appointment failed';
+   }
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>FNK Associates Ltd</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- bootstrap cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header fixed-top">
+
+   <div class="container">
+
+      <div class="row align-items-center justify-content-between">
+
+         <a href="#home" class="logo"><span><B>FNK</B></span>&nbsp;Associates</a>
+         <nav class="nav">
+
+            <a href="#home">Home</a>
+            <a href="#services">Business Consulting</a>
+            <a href="#technology">Technology</a>
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#real-estate">Real Estate</a>
+            <a href="#investment">Investment Proposition</a>
+            <a href="#contact">Contact Us</a>
+         </nav>
+
+         <a href="#contact" class="link-btn">Send us a query</a>
+
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+      </div>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<!-- <section class="home" id="home">
+
+   <div class="container">
+
+      <div class="row align-items-center">
+
+       
+
+         <div class="col-md-6 content">
+         <h3>About Us</h3>
+       
+               <p>We offer a full suite of services which focus on our clients' issues and opportunities. <br> We bring together deep, functional expertise, within a holistic approach.<br>
+                By working with FNK , you'll better understand these issues and opportunities and their impact. <br>We can help formulate solutions to keep you ahead of the curve.</p>
+           
+            <a href="#technology" class="link-btn">Our Services</a>
+         </div>
+
+      </div>
+
+   </div>
+   </section> -->
+
+   <section class="home" id="home">
+
+      <div class="container">
+   
+         <div class="row min-vh-50 align-items-center">
+            <div class="content text-center text-md-left">
+               <h3>FNK Associates</h3>
+               <p>We offer a full suite of services which focus on our clients' issues and opportunities.<br>
+                    We bring together deep, functional expertise, within a holistic approach.<br>
+
+                  By working with FNK , you'll better understand these issues and opportunities and their impact.<br>
+                   We can help formulate solutions to keep you ahead of the curve.
+                  </p>
+               <a href="#services" class="link-btn">Our Services</a>
+            </div>
+         </div>
+   
+      </div>
+   
+   </section>
+
+
+<section class="services" id="services">
+
+   <h1 class="heading">Business Consulting</h1>
+   <div class="container">
+         <div class="col-md-12 content">
+           <ul>
+              <li>Businesses change.Every business faces unique and complex challenges: successful businesses navigate change, while growth businesses shape it.
+            </li>
+            <li>Challenges are specific and solutions do not translate perfectly from one business to another, which is why we work with you to develop a fully customised approach to meet your needs. 
+            </li>
+            <li>Our team has experienced leaders and practitioners who are customer-focused, are delivery-excellence driven, and can navigate and manage complex projects, working effectively across diverse business and technology organizations. 
+            </li>
+          </ul>
+          <p>Please <b><a href="#contact">contact us </a></b> for a discussion on how we can help you.</p>
+
+         </div>
+
+   </div>
+   <!-- <h3 style="margin-left: 10%;">We can help you to:</h3> -->
+
+   <div class="box-container container">
+
+
+      <div class="box">
+         <img src="images/cost-reduction.jpg" alt="">
+         <h3>Productivity & Cost Reduction</h3>
+         <!-- <p>Maintain a safe workplace for staff, customers and the general public.
+         </p> -->
+      </div>
+
+      <div class="box">
+         <img src="images/process-improvement.jpg" alt="">
+         <h3>Process Improvement</h3>
+         <!-- <p>Increase productivity through reduced employee sickness and injury.
+            Reduce the overall cost of health and safety.
+            </p> -->
+      </div>
+
+      <div class="box">
+         <img src="images/diligence.jpg" alt="">
+         <h3>Due Diligence</h3>
+         <!-- <p>Be compliant with all the relevant health and safety laws</p> -->
+      </div>
+
+      <div class="box">
+         <img src="images/market-analysis.jpg" alt="">
+         <h3>Market Analysis & Business Development</h3>
+         <!-- <p>Continuously improve your health and safety management.         </p> -->
+      </div>
+
+      <div class="box">
+         <img src="images/financial-modeling.jpg" alt="">
+         <h3>Financial & Scenario Modelling</h3>
+         <!-- <p>Reduce the risk of prosecutions, fines, and reputational damage.
+         </p> -->
+      </div>
+
+      <div class="box">
+         <img src="images/risk-management.png" alt="">
+         <h3>Risk & Crisis Management</h3>
+         <!-- <p>Focus on running your business while we take care of health and safety.
+         </p> -->
+      </div>
+<!-- 
+      <div class="box">
+         <img src="images/business-growth.jpg" alt="">
+         <h3>Tackle Challenges for growth</h3>
+         <p>Every business faces unique and complex challenges: successful businesses navigate change, while growth businesses shape it.
+         </p>
+      </div>
+
+      <div class="box">
+         <img src="images/challenges.jpg" alt="">
+         <h3>Problems & solutions</h3>
+         <p>Challenges are specific and solutions do not translate perfectly from one business to another, which is why we work with you to develop a fully customised approach to meet your needs</p>
+      </div>
+
+      <div class="box">
+         <img src="images/team.png" alt="">
+         <h3>Competitive team</h3>
+         <p>Our team has experienced leaders and practitioners who are customer-focused, are delivery-excellence driven, and can navigate and manage complex projects, working effectively across diverse business and technology organizations. 
+         </p>
+      </div> -->
+
+   </div>
+
+</section>
+
+<section class="technology" id="technology">
+
+   <h1> Technology </h1>
+   <div class="container">
+      <div class="col-md-12 content">
+
+         <ul>
+            <li>Technology facilitates insight, efficiency and control in businesses to drive performance.</li>
+         
+         <li>Our approach is to help customers achieve their business objectives by providing innovative, best-in-class consulting, IT solutions and services and to make it a joy for all stakeholders to work with us.
+         </li>
+         <li>Our technology consulting team offers a comprehensive range of services to address the challenges faced by investors, business and technology leaders today. Commercial understanding and deep subject matter expertise are at the heart of our service offering, and we focus on practical, benefits focused and team based execution to meet our client's requirement</li>
+         <li>Our services include:</li>
+         </ul>
+      </div>
+      </div>
+
+         
+   <div class="box-container container">
+
+      <div class="box">
+         <img src="images/software-development.jpg" alt="">
+         <h3><b>Software Development </b></h3>
+      </div>
+
+      <div class="box">
+         <img src="images/digital-marketing.png" alt="">
+         <h3><b>Digital Marketing</b></h3>
+      </div>
+
+      <div class="box">
+         <img src="images/mobile-application.png" alt="">
+         <h3><b>Mobile Applications</b></h3>
+      </div>
+
+      <div class="box">
+         <img src="images/web-cloud.png" alt="">
+         <h3><b>Web-Cloud Based Solutions</b></h3>
+      </div>
+
+      <div class="box">
+         <img src="images/cyber-security.png" alt="">
+         <h3><b>Cyber Security</b></h3>
+      </div>
+
+   </div>
+   <div class="container">
+      <br>
+    
+      <p>Please <b><a href="#contact">contact us </a></b> for a discussion on how we can help you.</p>
+  </div>
+   </section>
+
+
+
+<!-- 
+<section class="infrastructure" id="infrastructure">
+
+  <div class="justify-content-between">
+  
+      <div class="content text-center text-md-center">
+            <h1 class="heading"> Infrastructure </h1>
+            <p>We help to bridge infrastructure funding gaps by facilitating project development, mobilizing private sector finance, and investing in infrastructure. We focus on medium- to large-scale projects that have development impact and offer an appropriate risk-adjusted return to investors. Bringing project development and financing together, we seek to provide support at every stage of the project cycle</p>
+            <a href="#contact" class="link-btn">Contact Us for suggestions</a>
+         </div>
+      
+      </div>
+    </section> -->
+
+    <section class="infrastructure" id="infrastructure">
+
+      <div class="container">
+   
+         <div class="row align-items-center">
+   
+            <div class="col-md-6 image">
+               <img src="images/InFrame_1648813049089.jpg" class="w-100 mb-5 mb-md-0" alt="">
+            </div>
+   
+            <div class="col-md-6 content">
+               <h1 class="heading">Infrastructure</h1>
+               <p>We help to bridge infrastructure funding gaps by facilitating project development, mobilizing private sector finance, and investing in infrastructure. We focus on medium- to large-scale projects that have development impact and offer an appropriate risk-adjusted return to investors. Bringing project development and financing together, we seek to provide support at every stage of the project cycle</p>
+               <a href="#contact" class="link-btn">Contact us for suggestions</a>
+            </div>
+   
+         </div>
+   
+      </div>
+   
+   </section>
+     
+     
+    <section class="real-estate" id="real-estate">
+
+      <h1 class="heading"> Real Estate </h1>
+      <div class="container">
+         <div class="col-md-12 content">
+   
+            <ul>
+               <li>Finding the right property for your investment can be a tricky business - from looking for ready built property or seeking investment opportunities overseas, we are here to help.  </li>
+            
+            <li>We will do all the heavy lifting for you, and all you really need to do is sign your name on the dotted line. With our dedicated property investment service, FNK Associates is uniquely positioned to help you find the right investment property for you at the best possible price and support you through every step of your investment journey. </li>
+            <p>Please <b><a href="#contact">contact us</a></b> for a free-no commitment discussion on how we can help you. </p>
+            </ul>
+         
+            
+      <div class="box-container container">
+   
+         <div class="box">
+            <span><b>Consultancy</b></span>
+            <p>Our teams draw on their experience, market analysis and sector knowledge to provide tailored advice.
+            </p>
+         </div>
+   
+         <div class="box">
+            <span><b>Development</b></span>
+            <p>We can work across multiple countries to provide support with acquisitions, disposals and funding. 
+            </p>
+         </div>
+
+         
+         <div class="box">
+            <span><b>Finance</b></span>
+            <p>We have a range of Partners who can provide financial advice and solutions to help our clients.
+            </p>
+         </div>
+
+         <div class="box">
+            <span><b>Investment</b></span>
+            <p>With an experienced team, we can provide advice on investment opportunities across the world.
+            </p>
+         </div>
+
+         <div class="box">
+            <span><b>Management</b></span>
+            <p>We can provide a full management service to carry out the day to day running.
+            </p>
+         </div>
+   
+      </div>
+      </section>
+
+      <section class="investment" id="investment">
+         <div class="container">
+            <h1>Investment Proposition</h1>
+            <div class="row align-items-center">
+               <div class="col-md-6 content">
+                  
+                  <ul>
+                     <li>FNK’s investment  proposition is unique in its dedication to our specialist operational sectors which include healthcare, retail, tourism and hospitality and education.
+                     </li>
+                     <li>We work across the complete spectrum of assets ranging from high value investments geared towards the institutional market to smaller, often with value add opportunities, which are targeted towards private investors
+                     </li>
+                     <li>Our business is built on trust and integrity. This is intrinsic in everything we do, and is what gives our clients, colleagues, partners and investors the confidence to work with us
+                     </li>
+      
+                     <li>Please do not hesitate to <b><a href="#contact">contact us</a></b> if you would like to discuss our range of services further.
+                     </li>
+                     </ul>
+
+
+
+               </div>
+               <div class="col-md-6 image">
+                  <img src="images/investment-img.jpg" class="w-100 mb-5 mb-md-0" alt="">
+               </div>
+      
+            </div>
+      
+         </div>
+
+         
+           </section>
+
+<section class="contact" id="contact">
+
+   <h1 class="heading">Send query</h1>
+
+     <!--<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+     <?php 
+         if(isset($message)){
+            foreach($message as $message){
+               echo '<p class="message">'.$message.'</p>';
+            }
+         }
+      ?> -->
+      <form action="https://formsubmit.co/27daa6fae7c48042d3d79c5556059fbb" method="POST">
+         <!-- Honeypot -->
+         <input type="text" style="display: none;">
+         <!-- Disable captcha -->
+         <input type="hidden" name="_captcha" value="false">
+
+         <input type="hidden" name="_next" value="https://fnk-associates.com">
+      <span>Your name :</span>
+      <input type="text" name="name" placeholder="Enter your name" class="box" required>
+      <span>Your email :</span>
+      <input type="email" name="email" placeholder="Enter your email" class="box" required>
+      <span>Your number :</span>
+      <input type="number" name="number" placeholder="Enter your number" class="box" required>
+      <span>Your query:</span>
+      <textarea type="text" class="box" rows="3" cols="60" name="query" placeholder="Enter your query" required ></textarea>
+      <input type="submit" onclick="myFunction()" value="Send" name="submit" class="link-btn">
+      <div id="snackbar">Your query has been received. Thanks for Contacting!!</div>
+   </form>  
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+   <div class="box-container container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>Phone number</h3>
+         <p>+44 (0) 7393 085 535</p>
+        
+      </div>
+      
+      <div class="box">
+         <i class="fas fa-map-marker-alt"></i>
+         <h3>Company details</h3>
+         <p>Company registered in England and Wales (registration number 11334099)</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-clock"></i>
+         <h3>Opening hours</h3>
+         <p>09:00am to 05:00pm</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>Email address</h3>
+         <p>info@fnk-associates.com</p>
+      </div>
+
+   </div>
+
+   <div class="credit"> &copy; copyright  <?php echo date('Y'); ?> by <span>2022</span>  </div>
+
+</section>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
